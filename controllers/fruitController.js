@@ -6,6 +6,29 @@ const Fruit = require("../models/fruits")
 // I.N.D.U.C.E.S
 // Index, New, Delete, Update, Create, Edit, Show
 
+// SEED
+router.get("/seed", (req, res)=>{
+  Fruit.create([
+      {
+          name:'grapefruit',
+          color:'pink',
+          readyToEat:true
+      },
+      {
+          name:'grape',
+          color:'purple',
+          readyToEat:false
+      },
+      {
+          name:'avocado',
+          color:'green',
+          readyToEat:true
+      }
+  ], (err, data)=>{
+      res.redirect('/fruits');
+  })
+});
+
 //INDEX
 router.get("/", (req, res) => {
   // Query model to return all fruits
